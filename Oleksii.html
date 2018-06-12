@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+</head>
+	<body>
+		<script>
+
+
+
+const transactions = [{
+  user: 'vova',
+  value: 10
+}, {
+  user: 'vova',
+  value: 5
+}, {
+  user: 'vadim',
+  value: 3
+}, {
+  user: 'anon',
+  value: 1000
+}, {
+  user: 'vadim',
+  value: 4
+}, {
+  user: 'bobul',
+  value: 100
+}, {
+  user: 'bobul',
+  value: 45
+}]
+ 
+const fluck = transactions.reduce(function(res,elem){
+	const lok = res[elem.user] ? res[elem.user] + elem.value : elem.value
+	res[elem.user] = lok;
+	return res
+},{})
+console.log(fluck)
+console.log(transactions)
+const result = {
+  vova: 15,
+  vadim: 7,
+  anon: 1000,
+  bobul: 145
+}
+
+
+/*
+
+const arr = [{
+  key: 'foo',
+  value: 'bar'
+}, {
+  key: 'hello',
+  value: 'world'
+}];
+
+const result = arr.reduce((res, elem) => {
+  res[elem.key] = elem.value;
+  return res;
+}, {});
+
+console.log(result)
+*/
+
+/*
+
+
+		  var entry = [
+		 		{
+		 	  	key: 'foo',
+		 	  	value: 'bar'
+		 		}, {
+		 	  	key: 'hello',
+		 	  	value: 'world'
+		 		}
+		 	]
+		  var obj = {}
+		  entry.forEach(function(e){
+		 		obj[e.key] = e.value
+		  })
+			console.log(obj)
+
+
+
+
+
+			var entry = {
+				foo: 'bar',
+				hello: 'world'
+			}
+			var arr = []
+			for (var key in entry){
+		 		arr.push({
+					key: key,
+					value: entry[key]
+				})
+			}
+			console.log(arr)
+
+*/
+		</script>
+	</body>
+</html>

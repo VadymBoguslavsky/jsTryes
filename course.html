@@ -1,0 +1,219 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta charset="utf-8">
+</head>
+
+<body>
+
+	<script>
+		var i = 0
+		var elem = document.getElementsByTagName('div')[0]
+		console.log(elem)
+		var b = elem.addEventListener("click", function () {
+			console.log(i++)
+		})
+
+		console.log(b)
+
+
+		function every(arg, f) {
+			for (var i = 0; i < arg.length; i++) {
+				if (!f(arg[i])) {
+					return false
+				}
+			}
+			return true
+		}
+
+		function some(arg, f) {
+			for (var i = 0; i < arg.length; i++) {
+				if (f(arg[i])) {
+					return true
+				}
+			}
+			return false
+		}
+
+		console.log(every([NaN, NaN, NaN], isNaN));
+		// → true
+		console.log(every([NaN, NaN, 4], isNaN));
+		// → false
+		console.log(some([NaN, 3, 4], isNaN));
+		// → true
+		console.log(some([2, 3, 4], isNaN));
+
+
+
+		var raque = [[1, 2], [3, 4], [5, 6]]
+
+		var res = raque.reduce(function (a, b) {
+			return a.concat(b)
+		})
+
+		var kol = res.reduce(function () {
+			return kol
+		})
+
+		console.log(raque)
+		console.log(res)
+		console.log(kol)
+
+
+
+
+		function Vehicle(wheels, isEngine, speed) {
+			this.wheels = wheels,
+				this.isEngine = isEngine || true,
+				this.speed = speed || 50,
+				this.type = getType(),
+				this.howMuchTime = function (distance) {
+					var km = distance.match(/km/i)
+					var mi = distance.match(/mi/i)
+					console.log(mi)
+					console.log(km)
+					if (km) {
+						distance = parseFloat(distance)
+						console.log(km, '1')
+					} else if (mi) {
+						distance = parseFloat(distance)
+						distance = distance * 1.6
+						console.log(mi, '2')
+					}
+					console.log(distance)
+					return this.speed / this.wheels
+				}
+
+			function getType() {
+				if (wheels >= 3 && isEngine && speed >= 100) {
+					return "car"
+				} else if (wheels == 2 && isEngine && speed >= 100) {
+					return "moto"
+				} else if (wheels == 2 && !isEngine && speed <= 50) {
+					return "bike"
+				} else {
+					return "something"
+				}
+
+			}
+		}
+
+		var car = new Vehicle(5, true, 330)
+		console.log(car.howMuchTime("150km"))
+
+		function findSolution(target) {
+			function find(start, history) {
+				if (start == target)
+					return history;
+				else if (start > target)
+					return null;
+				else
+					return find(start + 5, "(" + history + "	+	5)") ||
+						find(start * 3, "(" + history + "	*	3)");
+			}
+			return find(1, "1");
+		}
+		console.log(findSolution(13));
+
+
+
+		console.log(this)
+
+
+
+
+
+		var rabbit = {
+			legs: 4,
+			speed: 20,
+			run: function () {
+				return this.legs * this.speed
+			}
+		}
+		console.log(rabbit.run())
+
+
+
+
+		function move() {
+			var a = 0
+			for (var i = 0; i < arguments.length; i++) {
+				a += arguments[i]
+			}
+			return a
+		}
+		var b = move(1, 2, 3, 4, 5)
+		alert(b)
+
+
+
+
+		var a = +prompt('a?', '');
+
+		if (a == 0) {
+			alert(0);
+		}
+		if (a == 1) {
+			alert(1);
+		}
+
+		if (a == 2 || a == 3) {
+			alert('2,3');
+		}
+
+		switch (a) {
+			case 0:
+				alert("0");
+				break
+			case 1:
+				alert("1");
+				break
+			case 2:
+				alert("2");
+				break
+			case 3:
+				alert("3");
+				break
+			case 2:
+			case 3:
+				alert("2,3")
+				break
+			default:
+				alert(a);
+				break
+		}
+
+
+
+
+		var text = prompt('Введите число или строку', "")
+		if (!isNaN(text)) {
+			alert(text)
+			console.log(typeof (+text));
+		} else {
+			console.log(typeof (text));
+			alert("text")
+		}
+
+
+
+
+
+
+		var quest
+		var arr = []
+		do {
+			quest = confirm("tion")
+			arr.push(quest)
+		} while (quest)
+		console.log(arr.length - 1)
+
+
+
+	</script>
+
+
+</body>
+
+</html>

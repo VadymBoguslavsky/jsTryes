@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+</head>
+	<body>
+<form id="contactForm" action="" method="POST">
+  <div class="field">
+    <input type="text" name="name" id="name">
+  </div>
+  <div class="field">
+    <input type="submit" value="send">
+  </div>
+</form>
+	<script>
+		window.onload = function() {
+
+    document.getElementById('contactForm').addEventListener('submit', function() {
+    var name = document.getElementById('name').value;
+    localStorage.setItem('name', name);
+    });
+  
+  	var getName = localStorage.getItem('name');
+    document.getElementById('name').value = getName;
+  }
+	</script>
+
+	</body>
+</html>
