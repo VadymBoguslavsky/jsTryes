@@ -7,7 +7,7 @@
 		<script>
 
 
-
+/*
 const transactions = [{
   user: 'vova',
   value: 10
@@ -44,7 +44,7 @@ const result = {
   anon: 1000,
   bobul: 145
 }
-
+*/
 
 /*
 
@@ -100,6 +100,44 @@ console.log(result)
 			console.log(arr)
 
 */
+
+
+var dataServer = [
+	{fullName : {
+		surname : 'xxx', 
+		firstName : 'yyy', 
+		middleName: 'zzz',
+		arived: {
+			at: new Date('12.20.2017'),
+			to: new Date('12.22.2017')
+		},
+		isReady: {
+			isAwesome: {
+				really: true
+			}
+		}
+	}}
+];
+
+
+
+function checkObject(obj) {
+	for (var k in obj) {
+		var prop = obj[k];
+		if (typeof prop == "object" && prop instanceof Date ) {
+			checkObject(prop);
+		} else {
+			console.log(k, prop, typeof(prop));
+		}
+	}
+}
+
+checkObject(dataServer[0]);
+	
+
+
+
+
 		</script>
 	</body>
 </html>
