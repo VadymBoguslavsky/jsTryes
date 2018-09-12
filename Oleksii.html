@@ -136,6 +136,32 @@ checkObject(dataServer[0]);
 	
 
 
+    const users = [{
+      name: 'Vadim'
+    }, {
+      name: 'Vova'
+    }, {
+      name: 'Edgar'
+    }, {
+      name: 'Sasha'
+    }, {
+      name: 'Edik'
+    }, {
+      name: 'Jonia'
+    }];
+    var obj = {}
+
+    for (var i = 0; i < users.length; i++) {
+      var name = users[i].name
+
+      if ( obj[name.charAt(0)]) {
+        obj[name.charAt(0)].push(name)
+      } else {
+        var arr = []
+      arr.push(name)
+      obj[name.charAt(0)] = arr
+      }
+    }
 
 
 		</script>
